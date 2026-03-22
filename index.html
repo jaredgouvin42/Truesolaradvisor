@@ -57,12 +57,13 @@
     }
 
     .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
+  min-height: 92px;
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  align-items: center;
+  gap: 22px;
+  position: relative;
+}
 
     .brand {
       display: flex;
@@ -90,36 +91,95 @@
 
     .brand-copy strong {
       display: block;
-      font-size: 22px;
+      font-size: 20px;
+      line-height: 1.05;
       letter-spacing: -0.03em;
     }
 
     .brand-copy span {
       display: block;
       color: var(--text-500);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 0.09em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-top: 2px;
+      margin-top: 4px;
+      white-space: nowrap;
     }
 
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      color: var(--text-700);
-      font-weight: 700;
-      font-size: 15px;
-    }
+  display: none;
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  min-width: 280px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
+  padding: 14px;
+  background: rgba(255,255,255,0.985);
+  border: 1px solid #dfe9f6;
+  border-radius: 22px;
+  box-shadow: 0 24px 50px rgba(8, 26, 54, 0.14);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  z-index: 200;
+}
 
-    .nav-links a:hover { color: var(--blue-700); }
+.nav-links.open {
+  display: flex;
+}
+
+    .nav-links a {
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 14px;
+  color: var(--text-700);
+  font-size: 15px;
+  font-weight: 800;
+  white-space: nowrap;
+  transition: background .18s ease, color .18s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  background: #f4f8ff;
+  color: var(--text-900);
+}
+
+.nav-links a::after {
+  display: none;
+}
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
+      justify-self: end;
     }
+
+    .menu-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid #dbe6f3;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.96));
+  color: var(--text-900);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 12px 26px rgba(8, 26, 54, 0.08);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.menu-toggle:hover {
+  transform: translateY(-1px);
+  border-color: #bfd3ee;
+  box-shadow: 0 16px 30px rgba(8, 26, 54, 0.12);
+}
 
     .btn {
       display: inline-flex;
@@ -155,6 +215,33 @@
 
     .btn-secondary:hover { border-color: #bfd3ee; }
 
+    .nav-phone {
+      min-height: 54px;
+      padding: 0 26px;
+      font-size: 14px;
+      border: 1px solid #d9e6f5;
+      color: var(--text-900);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .nav-phone:hover {
+      border-color: #bfd3ee;
+      background: #ffffff;
+    }
+
+    .nav-cta {
+      min-height: 58px;
+      padding: 0 32px;
+      font-size: 16px;
+      font-weight: 900;
+      box-shadow: 0 18px 34px rgba(23, 178, 106, 0.28);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 22px 40px rgba(23, 178, 106, 0.32);
+    }
+
     .hero {
       position: relative;
       overflow: hidden;
@@ -179,32 +266,18 @@
 
     .hero-inner {
       display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(340px, .96fr);
-      gap: 34px;
-      padding: 88px 0 72px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: #f3f8ff;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: .03em;
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
+      gap: 28px;
+      padding: 48px 0 56px;
+      align-items: start;
     }
 
     .hero h1 {
-      margin: 18px 0 18px;
-      font-size: clamp(40px, 5vw, 68px);
-      line-height: 1.01;
+      margin: 8px 0 16px;
+      font-size: clamp(42px, 5vw, 68px);
+      line-height: 1.02;
       letter-spacing: -0.05em;
-      max-width: 11ch;
+      max-width: 13ch;
     }
 
     .hero p {
@@ -212,7 +285,7 @@
       font-size: 18px;
       line-height: 1.7;
       color: rgba(239, 246, 255, 0.9);
-      max-width: 58ch;
+      max-width: 54ch;
     }
 
     .hero-actions {
@@ -220,23 +293,6 @@
       flex-wrap: wrap;
       gap: 14px;
       margin-top: 28px;
-    }
-
-    .hero-trust {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .trust-pill {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #f3f8ff;
-      font-size: 14px;
-      font-weight: 700;
     }
 
     .hero-panel {
@@ -357,14 +413,31 @@
 
     .section-head h2 {
       margin: 0 0 12px;
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.06;
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.08;
       letter-spacing: -0.045em;
     }
 
     .section-head p {
       margin: 0;
       font-size: 18px;
+      line-height: 1.7;
+      color: var(--text-700);
+    }
+
+    .why-head {
+      max-width: 820px;
+      margin-bottom: 24px;
+    }
+
+    .faq-intro {
+      display: inline-block;
+      margin-top: 2px;
+      padding: 16px 18px;
+      background: var(--sky-100);
+      border: 1px solid #d9e7fb;
+      border-radius: 18px;
+      font-size: 17px;
       line-height: 1.7;
       color: var(--text-700);
     }
@@ -388,22 +461,28 @@
     }
 
     .card {
-      background: var(--white);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 26px;
-      box-shadow: var(--shadow-md);
+      background: #ffffff;
+      border: 1px solid #e6eef8;
+      border-radius: 26px;
+      padding: 28px;
+      box-shadow: 0 18px 40px rgba(8, 26, 54, 0.06);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 60px rgba(8, 26, 54, 0.10);
     }
 
     .card-icon {
-      width: 52px;
-      height: 52px;
+      width: 56px;
+      height: 56px;
       display: grid;
       place-items: center;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(21,101,216,0.12), rgba(23,178,106,0.1));
+      border-radius: 14px;
+      background: #f2f7ff;
       color: var(--blue-700);
-      font-size: 22px;
+      font-size: 24px;
     }
 
     .card h3 {
@@ -419,10 +498,9 @@
       line-height: 1.7;
     }
 
-    .why-band {
-      background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+   .why-band {
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
     }
-
     .metric {
       background: var(--white);
       border: 1px solid var(--line);
@@ -691,25 +769,35 @@
       .contact-boxes {
         grid-template-columns: 1fr;
       }
-      .nav-links { display: none; }
       .cta-band { flex-direction: column; align-items: flex-start; }
     }
 
     @media (max-width: 760px) {
-      .nav {
-        min-height: 72px;
-      }
-      .brand-copy strong {
-        font-size: 19px;
-      }
-      .brand-copy span {
-        font-size: 11px;
-      }
-      .nav-actions .btn-secondary {
-        display: none;
-      }
+  .nav {
+    min-height: 76px;
+    grid-template-columns: 1fr auto auto;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .brand-copy strong { font-size: 19px; }
+  .brand-copy span { font-size: 10px; }
+
+  .nav-actions {
+    gap: 10px;
+  }
+
+  .nav-actions .btn-secondary {
+    display: none;
+  }
+
+  .nav-cta {
+    min-height: 48px;
+    padding: 0 18px;
+    font-size: 14px;
+  }
       .hero-inner {
-        padding: 66px 0 54px;
+        padding: 54px 0 48px;
       }
       .hero h1 {
         max-width: 12ch;
@@ -723,7 +811,7 @@
         grid-template-columns: 1fr;
       }
       section {
-        padding: 56px 0;
+        padding: 80px 0;
       }
       .card,
       .qual-panel,
@@ -749,18 +837,20 @@
         </div>
       </a>
 
-      <nav class="nav-links">
-        <a href="#why">Why solar</a>
-        <a href="#qualify">Qualification</a>
-        <a href="#learn">Learn</a>
-        <a href="#faq">FAQ</a>
-        <a href="how-solar-works.html">How solar works</a>
-      </nav>
+      <nav class="nav-links" id="site-menu">
+      <a href="is-solar-worth-it.html">Is solar worth it?</a>
+      <a href="is-solar-worth-it.html#do-i-qualify">Do I qualify?</a>
+      <a href="how-solar-works.html">How it works</a>
+      <a href="about.html">About</a>
+      <a href="index.html#faq">FAQ</a>
+    </nav>
 
-      <div class="nav-actions">
-        <a class="btn btn-secondary" href="tel:8136092180">(813) 609-2180</a>
-        <a class="btn btn-primary" href="#review">Free solar review</a>
-      </div>
+<button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">☰</button>
+
+    <div class="nav-actions">
+      <a class="btn btn-secondary nav-phone" href="tel:8136092180">(813) 609-2180</a>
+      <a class="btn btn-primary nav-cta" href="#review">See if solar makes sense</a>
+    </div>
     </div>
   </header>
 
@@ -768,21 +858,14 @@
     <section class="hero">
       <div class="container hero-inner">
         <div>
-          <div class="eyebrow">No pressure. Just clear solar guidance.</div>
           <h1>Homeowners: see if solar actually makes sense for your electric bill.</h1>
           <p>
             Get a clean, no-pressure review of your home, roof, utility usage, and qualification so you can understand whether solar is truly a good fit before making any decision.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#review">Check your home</a>
-            <a class="btn btn-secondary" href="how-solar-works.html">Learn how solar works</a>
-          </div>
-
-          <div class="hero-trust">
-            <span class="trust-pill">Local Tampa guidance</span>
-            <span class="trust-pill">Former solar homeowner perspective</span>
-            <span class="trust-pill">1,000+ in-home consultations</span>
+            <a class="btn btn-primary" href="#review">Start with the review</a>
+            <a class="btn btn-secondary" href="how-solar-works.html">How solar works</a>
           </div>
         </div>
 
@@ -844,7 +927,7 @@
                 <textarea name="notes" placeholder="Roof concerns, current utility, timeline, or questions"></textarea>
               </label>
 
-              <button type="submit" class="btn btn-primary">Request my review</button>
+              <button type="submit" class="btn btn-primary">Get my solar answer</button>
             </form>
 
             <div class="fine-print">No pressure. Just a straightforward conversation about whether solar makes sense for your home.</div>
@@ -855,11 +938,11 @@
 
     <section class="why-band" id="why">
       <div class="container">
-        <div class="section-head">
+        <div class="section-head why-head">
           <div class="kicker">Why homeowners start here</div>
-          <h2>A more premium and straightforward solar experience.</h2>
+          <h2>A clearer, more homeowner-friendly way to explore solar.</h2>
           <p>
-            This site is built to help homeowners learn clearly, understand qualification, and move at their own pace instead of feeling pushed through a generic solar pitch.
+            True Solar Advisor is built to help homeowners understand fit, qualification, and next steps without pressure, confusion, or guesswork.
           </p>
         </div>
 
@@ -867,27 +950,26 @@
           <article class="card">
             <div class="card-icon">🧭</div>
             <h3>Clear guidance first</h3>
-            <p>Start with whether your home and electric bill look like a real fit, then decide what makes sense from there.</p>
+            <p>
+            Start by understanding whether your home, roof, and electric bill actually look like a strong solar fit—before going deeper into anything else.
+            </p>
           </article>
 
           <article class="card">
             <div class="card-icon">🏠</div>
             <h3>Homeowner-focused education</h3>
-            <p>Learn what solar is, how it works, and what to expect without needing to sit through a long appointment first.</p>
+            <p>
+            Learn how solar works, what qualification really looks like, and what to expect—explained clearly without sales pressure or confusion.
+            </p>
           </article>
 
           <article class="card">
             <div class="card-icon">🤝</div>
             <h3>Low-pressure consultation</h3>
-            <p>The goal is clarity, not confusion. If solar fits, great. If not, that is useful to know too.</p>
+            <p>
+            The goal is simple: give you a clear answer without pressure or confusion. If solar fits, great. If it doesn’t, that’s just as valuable to know.
+            </p>
           </article>
-        </div>
-
-        <div class="grid-4" style="margin-top:22px;">
-          <div class="metric"><strong>1,000+</strong><span>Homes visited across years of in-home consulting and homeowner conversations.</span></div>
-          <div class="metric"><strong>Local</strong><span>Tampa-focused guidance with a cleaner, more personal experience than a generic national funnel.</span></div>
-          <div class="metric"><strong>Simple</strong><span>Understand roof fit, qualification, utility impact, and next steps without pressure.</span></div>
-          <div class="metric"><strong>Educational</strong><span>Designed to become a real solar resource, not just a landing page.</span></div>
         </div>
       </div>
     </section>
@@ -994,9 +1076,9 @@
         <div class="section-head" style="margin-bottom:0;">
           <div class="kicker">Common questions</div>
           <h2>Questions homeowners usually ask first.</h2>
-          <p>
-            The homepage should answer the biggest early questions right away, while deeper education lives on the pages we add next.
-          </p>
+          <div class="faq-intro">
+            Most homeowners start with the same few questions: does solar make sense, what does it cost, and does their home even qualify? This section gives you quick answers before you go deeper.
+          </div>
         </div>
 
         <div class="faq-list">
@@ -1007,6 +1089,10 @@
           <details>
             <summary>Do all homes qualify for solar?</summary>
             <p>No. Roof condition, utility usage, shade, and qualification can all affect whether moving forward makes sense.</p>
+          </details>
+          <details>
+            <summary>What does solar cost upfront?</summary>
+            <p>In many cases, homeowners can go solar with little to no upfront cost depending on the program, financing structure, and qualification. The bigger question is whether the numbers make sense for your home and electric bill.</p>
           </details>
           <details>
             <summary>Do I need to fully understand solar before reaching out?</summary>
@@ -1027,7 +1113,7 @@
             <h2>Get a clear answer before you make a solar decision.</h2>
             <p>Start with a simple review of your home and electric bill so you can understand whether solar actually looks like a fit.</p>
           </div>
-          <a class="btn btn-primary" href="#review">Start your free review</a>
+          <a class="btn btn-primary" href="#review">See if solar makes sense</a>
         </div>
 
         <div class="contact-boxes">
@@ -1037,7 +1123,7 @@
           </div>
           <div class="contact-box">
             <strong>Email</strong>
-            <a href="mailto:Truesolaradvisor@gmail.com">Truesolaradvisor@gmail.com</a>
+            <a href="mailto:Jared@truesolaradvisor.com">Jared@truesolaradvisor.com</a>
           </div>
           <div class="contact-box">
             <strong>Service area</strong>
@@ -1058,5 +1144,28 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+  <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      menuToggle.textContent = isOpen ? '✕' : '☰';
+    });
+
+    document.addEventListener('click', (event) => {
+      const clickedInsideMenu = navLinks.contains(event.target);
+      const clickedButton = menuToggle.contains(event.target);
+
+      if (!clickedInsideMenu && !clickedButton) {
+        navLinks.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.textContent = '☰';
+      }
+    });
+  }
+</script>
 </body>
 </html>
