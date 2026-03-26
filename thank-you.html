@@ -487,6 +487,9 @@
     }
 
     @media (max-width: 760px) {
+      .container {
+  width: min(calc(100% - 20px), var(--container));
+}
       .nav {
   min-height: 72px;
   grid-template-columns: minmax(0, 1fr) auto;
@@ -591,6 +594,7 @@
         <a href="how-solar-works.html">How it works</a>
         <a href="process.html">What to expect</a>
         <a href="about.html">About</a>
+        <a href="index.html#faq">FAQ</a>
       </nav>
 
       <div class="nav-actions">
