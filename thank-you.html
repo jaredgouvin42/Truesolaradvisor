@@ -488,43 +488,64 @@
 
     @media (max-width: 640px) {
       .nav {
-        min-height: 72px;
-        gap: 10px;
-      }
+  min-height: 72px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
 
-      .brand-mark {
-        width: 40px;
-        height: 40px;
-        flex: 0 0 40px;
-        border-radius: 14px;
-        font-size: 18px;
-      }
+.brand {
+  gap: 10px;
+  min-width: 0;
+}
 
-      .brand-copy { display: none; }
+.brand-mark {
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 14px;
+  font-size: 18px;
+}
 
-      .menu-toggle {
-        width: 44px;
-        height: 44px;
-        font-size: 21px;
-        border-radius: 14px;
-        flex: 0 0 44px;
-      }
+.brand-copy {
+  display: block;
+  min-width: 0;
+}
 
-      .nav-actions {
-        gap: 8px;
-        min-width: 0;
-        width: 100%;
-        justify-content: flex-end;
-      }
+.brand-copy strong {
+  font-size: 15px;
+  line-height: 1.05;
+  white-space: nowrap;
+}
 
-      .nav-phone {
-        display: inline-flex;
-        min-height: 44px;
-        padding: 0 16px;
-        font-size: 12px;
-      }
+.brand-copy span {
+  display: none;
+}
 
-      .nav-cta { display: none; }
+.menu-toggle {
+  width: 44px;
+  height: 44px;
+  font-size: 21px;
+  border-radius: 14px;
+  flex: 0 0 44px;
+}
+
+.nav-actions {
+  gap: 8px;
+  min-width: 0;
+  width: auto;
+  justify-content: flex-end;
+}
+
+.nav-phone {
+  display: inline-flex;
+  min-height: 44px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+.nav-cta {
+  display: none;
+}
 
       .nav-links {
         left: 0;
@@ -568,6 +589,7 @@
         <a href="is-solar-worth-it.html">Is solar worth it?</a>
         <a href="is-solar-worth-it.html#do-i-qualify">Do I qualify?</a>
         <a href="how-solar-works.html">How it works</a>
+        <a href="process.html">What to expect</a>
         <a href="about.html">About</a>
       </nav>
 
