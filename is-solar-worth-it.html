@@ -111,8 +111,9 @@
       display: none;
       position: absolute;
       top: calc(100% + 12px);
-      right: 0;
+      left: 0;
       min-width: 280px;
+      max-width: 320px;
       flex-direction: column;
       align-items: stretch;
       gap: 6px;
@@ -156,6 +157,7 @@
       align-items: center;
       gap: 12px;
       justify-self: end;
+      position: relative;
     }
 
     .btn {
@@ -217,13 +219,13 @@
       width: 54px;
       height: 54px;
       border: 1px solid #dbe6f3;
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.96));
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(245,249,255,0.98));
       color: var(--text-900);
       font-size: 24px;
       line-height: 1;
       cursor: pointer;
-      box-shadow: 0 12px 26px rgba(8, 26, 54, 0.08);
+      box-shadow: 0 14px 28px rgba(8, 26, 54, 0.10);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
       flex: 0 0 54px;
     }
@@ -613,23 +615,26 @@
       .nav-actions {
         gap: 8px;
         min-width: 0;
+        width: 100%;
+        justify-content: flex-end;
       }
 
       .nav-phone {
-        display: none;
+        display: inline-flex;
+        min-height: 44px;
+        padding: 0 16px;
+        font-size: 12px;
       }
 
       .nav-cta {
-        min-height: 44px;
-        padding: 0 14px;
-        font-size: 12px;
-        max-width: calc(100vw - 132px);
+        display: none;
       }
 
       .nav-links {
         left: 0;
-        right: 0;
-        min-width: 0;
+        right: auto;
+        min-width: 240px;
+        max-width: calc(100vw - 40px);
         top: calc(100% + 10px);
         padding: 12px;
         border-radius: 18px;
@@ -723,7 +728,7 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="index.html#review">Go to the intake form</a>
+            <a class="btn btn-primary" href="index.html#review">See if solar is worth it</a>
             <a class="btn btn-secondary" href="how-solar-works.html">How solar works</a>
           </div>
         </div>
@@ -744,7 +749,7 @@
         <div class="rich-copy">
           <p>Some homeowners are trying to lower a very high electric bill. Others want more control over rising utility costs. Some simply want to know whether solar is worth exploring before going any further.</p>
           <p>The strongest fit usually comes down to a few key things: roof condition, shade, current utility costs, and qualification. Higher bills often create more urgency, but lower bills do not automatically rule solar out. Even homeowners planning to sell in the future may still have strong reasons to explore it now.</p>
-          <p>This page is designed to help you understand what actually matters so you can make a smarter call without the usual pressure or confusion.</p>
+          <p>True Solar Advisor is designed to help you understand what actually matters so you can make a smarter call without the usual pressure or confusion.</p>
         </div>
       </div>
     </section>
@@ -785,10 +790,13 @@
             </div>
           </article>
 
-          <article class="card">
-            <div class="card-icon">✅</div>
-            <h3>Qualification</h3>
-            <p>Most solar programs require qualification, so financing approval can affect what options are available. That does not mean every homeowner fits the same program, but it is something worth understanding early instead of later.</p>
+          <article class="card visual-card">
+            <img src="Credit.jpg" alt="Difference between good and bad credit." />
+            <div class="card-body">
+              <div class="card-icon">💡</div>
+              <h3>Qualification</h3>
+              <p>Most solar programs require qualification, so financing approval can affect what options are available. That does not mean every homeowner fits the same program, but it is something worth understanding early instead of later.</p>
+            </div>
           </article>
         </div>
       </div>

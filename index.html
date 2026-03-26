@@ -109,8 +109,9 @@
       display: none;
       position: absolute;
       top: calc(100% + 12px);
-      right: 0;
+      left: 0;
       min-width: 280px;
+      max-width: 320px;
       flex-direction: column;
       align-items: stretch;
       gap: 6px;
@@ -154,6 +155,7 @@
       align-items: center;
       gap: 12px;
       justify-self: end;
+      position: relative;
     }
 
     .btn {
@@ -198,13 +200,13 @@
       width: 54px;
       height: 54px;
       border: 1px solid #dbe6f3;
-      border-radius: 16px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.96));
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.99), rgba(245,249,255,0.98));
       color: var(--text-900);
       font-size: 24px;
       line-height: 1;
       cursor: pointer;
-      box-shadow: 0 12px 26px rgba(8, 26, 54, 0.08);
+      box-shadow: 0 14px 28px rgba(8, 26, 54, 0.10);
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
       flex: 0 0 54px;
     }
@@ -281,7 +283,7 @@
       gap: 14px;
       margin-top: 28px;
     }
-
+ 
     .hero-panel {
       background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.08) 100%);
       border: 1px solid rgba(255,255,255,0.12);
@@ -776,23 +778,26 @@
       .nav-actions {
         gap: 8px;
         min-width: 0;
+        width: 100%;
+        justify-content: flex-end;
       }
 
       .nav-phone {
-        display: none;
+        display: inline-flex;
+        min-height: 44px;
+        padding: 0 16px;
+        font-size: 12px;
       }
 
       .nav-cta {
-        min-height: 44px;
-        padding: 0 14px;
-        font-size: 12px;
-        max-width: calc(100vw - 132px);
+        display: none;
       }
 
       .nav-links {
         left: 0;
-        right: 0;
-        min-width: 0;
+        right: auto;
+        min-width: 240px;
+        max-width: calc(100vw - 40px);
         top: calc(100% + 10px);
         padding: 12px;
         border-radius: 18px;
@@ -850,7 +855,7 @@
 
       <div class="nav-actions">
         <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
-        <a class="btn btn-secondary" href="tel:8136092180">(813) 609-2180</a>
+        <a class="btn btn-secondary nav-phone" href="tel:8136092180">(813) 609-2180</a>
         <a class="btn btn-primary nav-cta" href="#review">See if solar makes sense</a>
       </div>
     </div>
@@ -883,54 +888,62 @@
           <div class="form-card">
             <p>Most homeowners just want to know whether solar actually makes sense. This is the cleanest place to start.</p>
 
-            <form name="solar-review" method="POST" data-netlify="true">
-              <input type="hidden" name="form-name" value="solar-review">
-              <div class="form-row">
-                <label>
-                  Full name
-                  <input type="text" name="name" placeholder="Your name" required>
-                </label>
-                <label>
-                  Phone number
-                  <input type="tel" name="phone" placeholder="Best number" required>
-                </label>
-              </div>
+            <form name="solar-review" method="POST" data-netlify="true" action="thank-you.html">
+  <input type="hidden" name="form-name" value="solar-review">
+  <input type="hidden" name="subject" value="New True Solar Advisor lead">
 
-              <label>
-                Property address
-                <input type="text" name="address" placeholder="Home address" required>
-              </label>
+  <div class="form-row">
+    <label>
+      Full name
+      <input type="text" name="name" placeholder="Your name" required>
+    </label>
+    <label>
+      Phone number
+      <input type="tel" name="phone" placeholder="Best number" required>
+    </label>
+  </div>
 
-              <div class="form-row">
-                <label>
-                  Average electric bill
-                  <select name="bill">
-                    <option value="">Select range</option>
-                    <option>Under $100</option>
-                    <option>$100–$150</option>
-                    <option>$150–$200</option>
-                    <option>$200–$300</option>
-                    <option>$300+</option>
-                  </select>
-                </label>
-                <label>
-                  Best way to reach you
-                  <select name="contact-preference">
-                    <option value="">Select</option>
-                    <option>Call</option>
-                    <option>Text</option>
-                    <option>Email</option>
-                  </select>
-                </label>
-              </div>
+  <div class="form-row">
+    <label>
+      Email address
+      <input type="email" name="email" placeholder="you@example.com">
+    </label>
+    <label>
+      Property address
+      <input type="text" name="address" placeholder="Home address" required>
+    </label>
+  </div>
 
-              <label>
-                Anything I should know?
-                <textarea name="notes" placeholder="Roof concerns, current utility, timeline, or questions"></textarea>
-              </label>
+  <div class="form-row">
+    <label>
+      Average electric bill
+      <select name="bill">
+        <option value="">Select range</option>
+        <option>Under $100</option>
+        <option>$100–$150</option>
+        <option>$150–$200</option>
+        <option>$200–$300</option>
+        <option>$300+</option>
+      </select>
+    </label>
+    <label>
+      Best way to reach you
+      <select name="contact-preference">
+        <option value="">Select</option>
+        <option>Call</option>
+        <option>Text</option>
+        <option>Email</option>
+      </select>
+    </label>
+  </div>
 
-              <button type="submit" class="btn btn-primary">Request my review</button>
-            </form>
+  <label>
+    Anything I should know?
+    <textarea name="notes" placeholder="Roof concerns, current utility, timeline, or questions"></textarea>
+  </label>
+
+  <button type="submit" class="btn btn-primary">Request my review</button>
+</form>
 
             <div class="fine-print">No pressure. Just a straightforward conversation about whether solar makes sense for your home.</div>
           </div>
@@ -942,9 +955,9 @@
       <div class="container">
         <div class="section-head">
           <div class="kicker">Why homeowners start here</div>
-          <h2>A more premium and straightforward solar experience.</h2>
+          <h2>A cleaner and more straightforward way to explore solar.</h2>
           <p>
-            True Solar Advisor is built to help homeowners understand fit, qualification, and next steps without getting rushed or overwhelmed.
+            True Solar Advisor is built to help homeowners understand fit, qualification, and next steps without getting rushed into a decision.
           </p>
         </div>
 
@@ -966,12 +979,6 @@
             <h3>Low-pressure consultation</h3>
             <p>The goal is clarity, not confusion. If solar fits, great. If not, that is useful to know too.</p>
           </article>
-        </div>
-
-        <div class="grid-4" style="margin-top:22px;">
-          <div class="metric"><strong>Local</strong><span>Tampa-focused guidance with a more personal experience than a generic national brand.</span></div>
-          <div class="metric"><strong>Simple</strong><span>Understand roof fit, qualification, utility impact, and next steps without pressure.</span></div>
-          <div class="metric"><strong>Educational</strong><span>Built to be a real homeowner resource, not just another solar landing page.</span></div>
         </div>
       </div>
     </section>
@@ -1009,7 +1016,7 @@
           <div class="kicker">Learn before you commit</div>
           <h2>A cleaner path into solar education.</h2>
           <p>
-            The site is being built as a homeowner resource so people can get both surface-level answers and deeper solar knowledge without digging through random articles.
+            True Solar Advisor is designed to be a homeowner resource so people can get both surface-level answers and deeper solar knowledge without digging through random articles.
           </p>
         </div>
 
@@ -1079,7 +1086,7 @@
           <div class="kicker">Common questions</div>
           <h2>Questions homeowners usually ask first.</h2>
           <p>
-            The homepage should answer the biggest early questions right away, while deeper education lives on the pages we add next.
+            These 4 questions can be answered right away, while deeper education lives on other pages you can access through the top menu.
           </p>
         </div>
 
