@@ -57,13 +57,13 @@
     }
 
     .nav {
-  min-height: 92px;
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  align-items: center;
-  gap: 22px;
-  position: relative;
-}
+      min-height: 86px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 18px;
+      position: relative;
+    }
 
     .brand {
       display: flex;
@@ -85,6 +85,10 @@
       flex: 0 0 48px;
     }
 
+    .brand-copy {
+      min-width: 0;
+    }
+
     .brand-copy strong {
       display: block;
       font-size: 20px;
@@ -104,78 +108,55 @@
     }
 
     .nav-links {
-  display: none;
-  position: absolute;
-  top: calc(100% + 12px);
-  right: 0;
-  min-width: 280px;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 6px;
-  padding: 14px;
-  background: rgba(255,255,255,0.985);
-  border: 1px solid #dfe9f6;
-  border-radius: 22px;
-  box-shadow: 0 24px 50px rgba(8, 26, 54, 0.14);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  z-index: 200;
-}
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      min-width: 280px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 6px;
+      padding: 14px;
+      background: rgba(255,255,255,0.985);
+      border: 1px solid #dfe9f6;
+      border-radius: 22px;
+      box-shadow: 0 24px 50px rgba(8, 26, 54, 0.14);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 200;
+    }
 
-.nav-links.open {
-  display: flex;
-}
+    .nav-links.open {
+      display: flex;
+    }
 
     .nav-links a {
-  width: 100%;
-  padding: 14px 14px;
-  border-radius: 14px;
-  color: var(--text-700);
-  font-size: 15px;
-  font-weight: 800;
-  white-space: nowrap;
-  transition: background .18s ease, color .18s ease;
-}
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 14px;
+      color: var(--text-700);
+      font-size: 15px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: background .18s ease, color .18s ease;
+    }
 
-.nav-links a:hover,
-.nav-links a.active {
-  background: #f4f8ff;
-  color: var(--text-900);
-}
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: #f4f8ff;
+      color: var(--text-900);
+    }
 
-.nav-links a::after {
-  display: none;
-}
+    .nav-links a::after {
+      display: none;
+    }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       justify-self: end;
     }
-
-    .menu-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  border: 1px solid #dbe6f3;
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.96));
-  color: var(--text-900);
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 12px 26px rgba(8, 26, 54, 0.08);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
-}
-
-.menu-toggle:hover {
-  transform: translateY(-1px);
-  border-color: #bfd3ee;
-  box-shadow: 0 16px 30px rgba(8, 26, 54, 0.12);
-}
 
     .btn {
       display: inline-flex;
@@ -228,12 +209,29 @@
       box-shadow: 0 18px 34px rgba(23, 178, 106, 0.28);
     }
 
-    .qualify-cta {
-      min-height: 64px;
-      padding: 0 38px;
-      font-size: 17px;
-      font-weight: 900;
-      box-shadow: 0 22px 42px rgba(23, 178, 106, 0.30);
+    
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border: 1px solid #dbe6f3;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.96));
+      color: var(--text-900);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 12px 26px rgba(8, 26, 54, 0.08);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+      flex: 0 0 54px;
+    }
+
+    .menu-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #bfd3ee;
+      box-shadow: 0 16px 30px rgba(8, 26, 54, 0.12);
     }
 
     .hero {
@@ -510,146 +508,16 @@
 
     .bill-card img {
       width: 100%;
-      height: 360px;
       border-radius: 18px;
-      background: #f7fbff;
-      object-fit: cover;
-      object-position: center;
-      display: block;
+      background: #000;
+      object-fit: contain;
+      aspect-ratio: 16 / 10;
     }
 
     .bill-card p {
       margin: 14px 8px 4px;
       color: var(--text-700);
       line-height: 1.65;
-    }
-
-
-    .savings-band {
-      background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
-    }
-
-    .savings-wrap {
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(340px, .98fr);
-      gap: 28px;
-      align-items: stretch;
-      margin-top: 30px;
-    }
-
-    .savings-visual {
-      overflow: hidden;
-      padding: 0;
-    }
-
-    .savings-visual img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      border-bottom: 1px solid #e6eef8;
-      background: #f7fbff;
-    }
-
-    .savings-visual .card-body {
-      padding: 28px;
-    }
-
-    .mini-note {
-      margin-top: 12px;
-      color: var(--text-500);
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .math-card {
-      display: grid;
-      gap: 18px;
-      background: var(--white);
-      border: 1px solid #e6eef8;
-      border-radius: 26px;
-      padding: 0;
-      overflow: hidden;
-      box-shadow: 0 18px 40px rgba(8, 26, 54, 0.06);
-    }
-
-    .bill-stack {
-      display: grid;
-      gap: 16px;
-    }
-
-    .bill-mini {
-      display: grid;
-      gap: 16px;
-      padding: 0;
-      margin-bottom: 10px;
-      border-radius: 22px 22px 0 0;
-      background: none;
-      border: none;
-      overflow: hidden;
-      height: 100%;
-    }
-
-    .bill-mini img {
-      width: 100%;
-      height: 420px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 22px 22px 0 0;
-      display: block;
-    }
-
-    .bill-mini > div {
-      padding: 0 28px;
-    }
-
-    .bill-mini strong {
-      display: block;
-      font-size: 18px;
-      letter-spacing: -0.02em;
-    }
-
-    .bill-mini span {
-      color: var(--text-700);
-      line-height: 1.6;
-    }
-
-    .savings-math {
-      display: grid;
-      gap: 14px;
-      padding: 22px 28px 28px;
-      margin: 0 28px 28px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
-      border: 1px solid #e3edf9;
-    }
-
-    .math-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      color: var(--text-900);
-      font-weight: 700;
-    }
-
-    .math-row span:last-child {
-      white-space: nowrap;
-    }
-
-    .math-row.subtle {
-      color: var(--text-700);
-      font-weight: 600;
-    }
-
-    .math-row.total {
-      padding-top: 14px;
-      border-top: 1px solid #dce8f6;
-      font-size: 18px;
-    }
-
-    .math-row.highlight {
-      color: var(--green-600);
-      font-size: 20px;
-      letter-spacing: -0.02em;
     }
 
     .cta-band {
@@ -702,47 +570,115 @@
       .savings-wrap {
         grid-template-columns: 1fr;
       }
+
       .cta-band { flex-direction: column; align-items: flex-start; }
     }
 
     @media (max-width: 760px) {
-  .nav {
-    min-height: 76px;
-    grid-template-columns: 1fr auto auto;
-    gap: 12px;
-    align-items: center;
-  }
+      .container {
+        width: min(calc(100% - 20px), var(--container));
+      }
 
-  .brand-copy strong { font-size: 19px; }
-  .brand-copy span { font-size: 10px; }
+      .nav {
+        min-height: 72px;
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+      }
 
-  .nav-actions {
-    gap: 10px;
-  }
+      .brand {
+        gap: 0;
+        min-width: 0;
+      }
 
-  .nav-actions .btn-secondary {
-    display: none;
-  }
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+        border-radius: 14px;
+        font-size: 18px;
+      }
 
-  .nav-cta {
-    min-height: 48px;
-    padding: 0 18px;
-    font-size: 14px;
-  }
+      .brand-copy {
+        display: none;
+      }
+
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 21px;
+        border-radius: 14px;
+        flex: 0 0 44px;
+      }
+
+      .nav-actions {
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .nav-phone {
+        display: none;
+      }
+
+      .nav-cta {
+        min-height: 44px;
+        padding: 0 14px;
+        font-size: 12px;
+        max-width: calc(100vw - 132px);
+      }
+
+      .nav-links {
+        left: 0;
+        right: 0;
+        min-width: 0;
+        top: calc(100% + 10px);
+        padding: 12px;
+        border-radius: 18px;
+      }
 
       .hero-inner {
-        padding: 48px 0 52px;
+        padding: 44px 0 48px;
+        gap: 20px;
         grid-template-columns: 1fr;
+      }
+
+      .hero-panel,
+      .visual-card,
+      .savings-visual,
+      .bill-mini {
+        padding: 0;
+      }
+
+      .hero-panel img,
+      .visual-card img,
+      .savings-visual img,
+      .bill-mini img {
+        width: 100%;
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: auto !important;
+        object-fit: contain !important;
+        object-position: center top !important;
+        border-radius: 22px 22px 0 0;
+      }
+
+      .hero-panel img {
+        border-radius: 22px;
       }
 
       .hero h1 { max-width: 11ch; }
       .section-head p,
       .rich-copy p,
       .hero p { font-size: 16px; }
-      section { padding: 62px 0; }
+      section { padding: 56px 0; }
       .card,
       .cta-band,
-      .visual-card .card-body { padding: 22px; }
+      .visual-card .card-body { padding: 20px; }
+      .savings-visual .card-body,
+      .bill-mini > div,
+      .savings-math {
+        padding: 20px !important;
+        margin: 0 !important;
+      }
       .footer-wrap {
         flex-direction: column;
         align-items: flex-start;
@@ -761,19 +697,18 @@
         </div>
       </a>
 
-      <nav class="nav-links" id="site-menu">
-  <a href="is-solar-worth-it.html">Is solar worth it?</a>
-  <a href="is-solar-worth-it.html#do-i-qualify">Do I qualify?</a>
-  <a href="how-solar-works.html">How it works</a>
-  <a href="about.html">About</a>
-  <a href="index.html#faq">FAQ</a>
-</nav>
-
-<button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">☰</button>
+      <nav class="nav-links">
+        <a class="active" href="is-solar-worth-it.html">Is solar worth it?</a>
+        <a href="#do-i-qualify">Do I qualify?</a>
+        <a href="how-solar-works.html">How it works</a>
+        <a href="about.html">About</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
 
       <div class="nav-actions">
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
         <a class="btn btn-secondary nav-phone" href="tel:8136092180">(813) 609-2180</a>
-        <a class="btn btn-primary nav-cta" href="#do-i-qualify">See if solar makes sense</a>
+        <a class="btn btn-primary nav-cta" href="index.html#review">See if solar makes sense</a>
       </div>
     </div>
   </header>
@@ -788,8 +723,8 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#do-i-qualify">See if solar makes sense</a>
-            <a class="btn btn-secondary" href="index.html#review">Start with the review</a>
+            <a class="btn btn-primary" href="index.html#review">Go to the intake form</a>
+            <a class="btn btn-secondary" href="how-solar-works.html">How solar works</a>
           </div>
         </div>
 
@@ -809,7 +744,7 @@
         <div class="rich-copy">
           <p>Some homeowners are trying to lower a very high electric bill. Others want more control over rising utility costs. Some simply want to know whether solar is worth exploring before going any further.</p>
           <p>The strongest fit usually comes down to a few key things: roof condition, shade, current utility costs, and qualification. Higher bills often create more urgency, but lower bills do not automatically rule solar out. Even homeowners planning to sell in the future may still have strong reasons to explore it now.</p>
-          <p>This page is designed to help you understand what actually matters so you can make a smarter, more grounded decision.</p>
+          <p>This page is designed to help you understand what actually matters so you can make a smarter call without the usual pressure or confusion.</p>
         </div>
       </div>
     </section>
@@ -850,13 +785,10 @@
             </div>
           </article>
 
-          <article class="card visual-card">
-            <img src="Credit.jpg" alt="Comparison showing a lower credit score and a stronger credit score for qualification context." />
-            <div class="card-body">
-              <div class="card-icon">✅</div>
-              <h3>Qualification</h3>
-              <p>Qualification depends on the path you choose. Many homeowners go solar through a lease option, which usually only uses a soft credit check instead of a loan and often looks for a score around the 630 to 650 range or better. If a homeowner wants to own the system instead, the financing conversation is usually more strict. The full difference between lease and ownership is explained on the <a href="how-solar-works.html" style="color: var(--blue-700); font-weight:800;">How it works</a> page.</p>
-            </div>
+          <article class="card">
+            <div class="card-icon">✅</div>
+            <h3>Qualification</h3>
+            <p>Most solar programs require qualification, so financing approval can affect what options are available. That does not mean every homeowner fits the same program, but it is something worth understanding early instead of later.</p>
           </article>
         </div>
       </div>
@@ -930,7 +862,7 @@
             </div>
             <div class="limit-item">
               <div class="limit-mark">!</div>
-              <div><strong>Qualification depends on the program</strong><span>Lease options are often easier to qualify for and usually only involve a soft credit check, while ownership and loan options are typically more strict.</span></div>
+              <div><strong>Qualification challenges</strong><span>Some programs require financing approval, so qualification can affect whether moving forward is possible.</span></div>
             </div>
           </div>
         </div>
@@ -983,57 +915,14 @@
       </div>
     </section>
 
-    <section class="savings-band">
-      <div class="container">
-        <div class="section-head">
-          <div class="kicker">What it can look like after solar</div>
-          <h2>For many homeowners, the value comes from replacing a rising utility bill with something lower or more predictable.</h2>
-          <p>The savings are what usually make solar worth it. For some homeowners, that means a lower monthly cost right away. For others, it means trading an unpredictable utility bill for a more stable long-term energy cost. And if battery backup is added, it can also create meaningful value during outages by keeping important parts of the home running while the system recharges during the day.</p>
-        </div>
-
-        <div class="savings-wrap">
-          <article class="card savings-visual">
-            <img src="House-Solar.jpg" alt="Before and after comparison showing a home before solar and after solar panels are installed." />
-            <div class="card-body">
-              <div class="card-icon">☀️</div>
-              <h3>What the switch can feel like</h3>
-              <p>Instead of sending a large payment to the utility company every month, many homeowners replace that burden with a lower or more predictable solar payment. In some cases, they also add battery backup for outage protection and extra peace of mind.</p>
-              <p class="mini-note">Battery backups can help keep essential appliances, lights, internet, refrigeration, and other important circuits running during outages, and they can recharge during the day when solar production is available.</p>
-            </div>
-          </article>
-
-          <div class="math-card">
-            <div class="bill-stack">
-              <div class="bill-mini">
-                <img src="TECO-Solar-Bill.jpg" alt="Mock TECO bill showing no payment due after solar credits are applied." />
-                <div>
-                  <strong>After solar, the utility bill can drop dramatically</strong>
-                  <span>This example shows a zero-balance TECO statement after solar production is applied. Some months may still have a small balance depending on usage and system performance, but this is the kind of shift homeowners are trying to create.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="savings-math">
-              <div class="math-row subtle"><span>Before solar: TECO bill</span><span>$294.92</span></div>
-              <div class="math-row subtle"><span>After solar: solar payment</span><span>$218.00</span></div>
-              <div class="math-row subtle"><span>After solar: TECO balance</span><span>$0.00</span></div>
-              <div class="math-row total"><span>Estimated monthly difference</span><span>$76.92 saved</span></div>
-              <div class="math-row highlight"><span>Estimated first-year difference</span><span>$923.04</span></div>
-              <div class="mini-note">This is a simplified example for illustration only. Actual savings, bill offsets, backup behavior, and final program terms will differ by home, system size, usage, utility, financing path, and whether battery storage is included.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="do-i-qualify" style="padding-top: 30px;">
+    <section id="do-i-qualify">
       <div class="container">
         <div class="cta-band">
           <div>
             <h2>So... do you qualify?</h2>
-            <p>At this point, the next step is not more guessing. It is reviewing your roof, shade, bill, and qualification together so you can see whether solar makes sense for your home and which path may fit best.</p>
+            <p>At this point, the next step is not more guessing. It is reviewing your roof, shade, bill, and qualification together so you can see whether solar makes sense for your home and what path may fit best.</p>
           </div>
-          <a class="btn btn-primary qualify-cta" href="index.html#review">See if you qualify</a>
+          <a class="btn btn-primary" href="index.html#review">See if solar makes sense</a>
         </div>
       </div>
     </section>
@@ -1046,31 +935,30 @@
     </div>
   </footer>
 
-  <script>
+    <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menuToggle.textContent = isOpen ? '✕' : '☰';
+      });
+
+      document.addEventListener('click', (event) => {
+        const clickedInsideMenu = navLinks.contains(event.target);
+        const clickedButton = menuToggle.contains(event.target);
+
+        if (!clickedInsideMenu && !clickedButton) {
+          navLinks.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.textContent = '☰';
+        }
+      });
+    }
   </script>
-  <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuToggle.textContent = isOpen ? '✕' : '☰';
-    });
-
-    document.addEventListener('click', (event) => {
-      const clickedInsideMenu = navLinks.contains(event.target);
-      const clickedButton = menuToggle.contains(event.target);
-
-      if (!clickedInsideMenu && !clickedButton) {
-        navLinks.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.textContent = '☰';
-      }
-    });
-  }
-</script>
 </body>
 </html>

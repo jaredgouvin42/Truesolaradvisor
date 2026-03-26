@@ -57,13 +57,13 @@
     }
 
     .nav {
-  min-height: 92px;
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  align-items: center;
-  gap: 22px;
-  position: relative;
-}
+      min-height: 86px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 18px;
+      position: relative;
+    }
 
     .brand {
       display: flex;
@@ -85,6 +85,10 @@
       flex: 0 0 48px;
     }
 
+    .brand-copy {
+      min-width: 0;
+    }
+
     .brand-copy strong {
       display: block;
       font-size: 20px;
@@ -104,78 +108,55 @@
     }
 
     .nav-links {
-  display: none;
-  position: absolute;
-  top: calc(100% + 12px);
-  right: 0;
-  min-width: 280px;
-  flex-direction: column;
-  align-items: stretch;
-  gap: 6px;
-  padding: 14px;
-  background: rgba(255,255,255,0.985);
-  border: 1px solid #dfe9f6;
-  border-radius: 22px;
-  box-shadow: 0 24px 50px rgba(8, 26, 54, 0.14);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  z-index: 200;
-}
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      right: 0;
+      min-width: 280px;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 6px;
+      padding: 14px;
+      background: rgba(255,255,255,0.985);
+      border: 1px solid #dfe9f6;
+      border-radius: 22px;
+      box-shadow: 0 24px 50px rgba(8, 26, 54, 0.14);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      z-index: 200;
+    }
 
-.nav-links.open {
-  display: flex;
-}
+    .nav-links.open {
+      display: flex;
+    }
 
-   .nav-links a {
-  width: 100%;
-  padding: 14px 14px;
-  border-radius: 14px;
-  color: var(--text-700);
-  font-size: 15px;
-  font-weight: 800;
-  white-space: nowrap;
-  transition: background .18s ease, color .18s ease;
-}
+    .nav-links a {
+      width: 100%;
+      padding: 14px 14px;
+      border-radius: 14px;
+      color: var(--text-700);
+      font-size: 15px;
+      font-weight: 800;
+      white-space: nowrap;
+      transition: background .18s ease, color .18s ease;
+    }
 
-.nav-links a:hover,
-.nav-links a.active {
-  background: #f4f8ff;
-  color: var(--text-900);
-}
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: #f4f8ff;
+      color: var(--text-900);
+    }
 
-.nav-links a::after {
-  display: none;
-}
+    .nav-links a::after {
+      display: none;
+    }
 
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       justify-self: end;
     }
-
-    .menu-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 54px;
-  height: 54px;
-  border: 1px solid #dbe6f3;
-  border-radius: 16px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.96));
-  color: var(--text-900);
-  font-size: 24px;
-  line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 12px 26px rgba(8, 26, 54, 0.08);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
-}
-
-.menu-toggle:hover {
-  transform: translateY(-1px);
-  border-color: #bfd3ee;
-  box-shadow: 0 16px 30px rgba(8, 26, 54, 0.12);
-}
 
     .btn {
       display: inline-flex;
@@ -226,6 +207,31 @@
       font-size: 16px;
       font-weight: 900;
       box-shadow: 0 18px 34px rgba(23, 178, 106, 0.28);
+    }
+
+    
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 54px;
+      height: 54px;
+      border: 1px solid #dbe6f3;
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,251,255,0.96));
+      color: var(--text-900);
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+      box-shadow: 0 12px 26px rgba(8, 26, 54, 0.08);
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+      flex: 0 0 54px;
+    }
+
+    .menu-toggle:hover {
+      transform: translateY(-1px);
+      border-color: #bfd3ee;
+      box-shadow: 0 16px 30px rgba(8, 26, 54, 0.12);
     }
 
     .hero {
@@ -529,62 +535,112 @@
       padding-top: 20px;
     }
 
-    @media (max-width: 1080px) {
-      .hero-inner,
-      .grid-2,
-      .grid-3,
-      .check-grid {
-        grid-template-columns: 1fr;
+    
+@media (max-width: 1080px) {
+  .hero-inner,
+  .grid-2,
+  .grid-3,
+  .check-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-band,
+  .mini-band { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 20px), var(--container));
       }
-      .cta-band,
-      .mini-band { flex-direction: column; align-items: flex-start; }
-    }
 
-    @media (max-width: 760px) {
-  .nav {
-    min-height: 76px;
-    grid-template-columns: 1fr auto auto;
-    gap: 12px;
-    align-items: center;
-  }
+      .nav {
+        min-height: 72px;
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+      }
 
-  .brand-copy strong { font-size: 19px; }
-  .brand-copy span { font-size: 10px; }
+      .brand {
+        gap: 0;
+        min-width: 0;
+      }
 
-  .nav-actions {
-    gap: 10px;
-  }
+      .brand-mark {
+        width: 40px;
+        height: 40px;
+        flex: 0 0 40px;
+        border-radius: 14px;
+        font-size: 18px;
+      }
 
-  .nav-actions .btn-secondary {
-    display: none;
-  }
+      .brand-copy {
+        display: none;
+      }
 
-  .nav-cta {
-    min-height: 48px;
-    padding: 0 18px;
-    font-size: 14px;
-  }
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
+        font-size: 21px;
+        border-radius: 14px;
+        flex: 0 0 44px;
+      }
+
+      .nav-actions {
+        gap: 8px;
+        min-width: 0;
+      }
+
+      .nav-phone {
+        display: none;
+      }
+
+      .nav-cta {
+        min-height: 44px;
+        padding: 0 14px;
+        font-size: 12px;
+        max-width: calc(100vw - 132px);
+      }
+
+      .nav-links {
+        left: 0;
+        right: 0;
+        min-width: 0;
+        top: calc(100% + 10px);
+        padding: 12px;
+        border-radius: 18px;
+      }
 
       .hero-inner {
-        padding: 48px 0 52px;
-        grid-template-columns: 1fr;
-      }
+    padding: 44px 0 48px;
+    gap: 20px;
+    grid-template-columns: 1fr;
+  }
 
-      .hero h1 { max-width: 11ch; }
-      .section-head p,
-      .rich-copy p,
-      .hero p { font-size: 16px; }
-      section { padding: 62px 0; }
-      .card,
-      .story-card,
-      .cta-band,
-      .mini-band { padding: 22px; }
-      .footer-wrap {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-    }
-  </style>
+  .hero-panel {
+    padding: 16px;
+  }
+
+  .hero-panel img {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    object-fit: cover;
+  }
+
+  .hero h1 { max-width: 11ch; }
+  .section-head p,
+  .rich-copy p,
+  .hero p { font-size: 16px; }
+  section { padding: 56px 0; }
+  .card,
+  .story-card,
+  .cta-band,
+  .mini-band { padding: 22px; }
+  .footer-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
 </head>
 <body>
   <header class="site-header">
@@ -597,17 +653,16 @@
         </div>
       </a>
 
-      <nav class="nav-links" id="site-menu">
-  <a href="is-solar-worth-it.html">Is solar worth it?</a>
-  <a href="is-solar-worth-it.html#do-i-qualify">Do I qualify?</a>
-  <a href="how-solar-works.html">How it works</a>
-  <a href="about.html">About</a>
-  <a href="index.html#faq">FAQ</a>
-</nav>
-
-<button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">☰</button>
+      <nav class="nav-links">
+        <a href="is-solar-worth-it.html">Is solar worth it?</a>
+        <a href="is-solar-worth-it.html#do-i-qualify">Do I qualify?</a>
+        <a href="how-solar-works.html">How it works</a>
+        <a class="active" href="about.html">About</a>
+        <a href="index.html#faq">FAQ</a>
+      </nav>
 
       <div class="nav-actions">
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
         <a class="btn btn-secondary nav-phone" href="tel:8136092180">(813) 609-2180</a>
         <a class="btn btn-primary nav-cta" href="index.html#review">See if solar makes sense</a>
       </div>
@@ -618,14 +673,14 @@
     <section class="hero">
       <div class="container hero-inner">
         <div>
-          <h1>A clearer way to help homeowners understand solar.</h1>
+          <h1>A more honest way to help homeowners understand solar.</h1>
           <p>
-            True Solar Advisor was built to give homeowners a clearer, lower-pressure way to understand whether solar actually makes sense. The goal is not to rush you. The goal is to help you understand the fit and make the right call with confidence.
+            True Solar Advisor was built to give homeowners a clearer, lower-pressure way to understand whether solar actually makes sense. The goal is not to rush you. The goal is to help you make the right call with confidence.
           </p>
 
           <div class="hero-actions">
             <a class="btn btn-primary" href="index.html#review">See if solar makes sense</a>
-            <a class="btn btn-secondary" href="index.html#review">Start with the review</a>
+            <a class="btn btn-secondary" href="how-solar-works.html">How solar works</a>
           </div>
         </div>
 
@@ -660,8 +715,8 @@
       <div class="container">
         <div class="section-head">
           <div class="kicker">What makes this different</div>
-          <h2>This is built to feel straightforward, helpful, and homeowner-first.</h2>
-          <p>The experience should feel clear, practical, and honest from the first click all the way through the actual conversation.</p>
+          <h2>This is built to feel clear, simple, and honest.</h2>
+          <p>The experience should feel simple, homeowner-first, and honest from the first click all the way through the actual conversation.</p>
         </div>
 
         <div class="check-grid">
@@ -716,9 +771,9 @@
         <div class="mini-band">
           <div>
             <strong>Built for Tampa-area homeowners who want straight answers.</strong>
-            <span>This website is meant to feel local, grounded, and practical — not generic, rushed, or one-size-fits-all.</span>
+            <span>This website is meant to feel local, grounded, and practical — not generic or overproduced.</span>
           </div>
-          <a class="btn btn-secondary" href="index.html#review">Start with the review</a>
+          <a class="btn btn-secondary" href="is-solar-worth-it.html">See what affects the fit</a>
         </div>
       </div>
     </section>
@@ -752,7 +807,7 @@
         <div class="cta-band">
           <div>
             <h2>Want to see if solar actually makes sense for your home?</h2>
-            <p>If you have been looking for a clearer, more straightforward way to understand solar, the next step is simple: start with the review and get a real answer for your home.</p>
+            <p>If you have been looking for a cleaner, more straightforward way to understand solar without getting pushed, the next step is simple: start with the review and get a real answer for your home.</p>
           </div>
           <a class="btn btn-primary qualify-cta" href="index.html#review">See if solar makes sense</a>
         </div>
@@ -767,31 +822,30 @@
     </div>
   </footer>
 
-  <script>
+    <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        menuToggle.textContent = isOpen ? '✕' : '☰';
+      });
+
+      document.addEventListener('click', (event) => {
+        const clickedInsideMenu = navLinks.contains(event.target);
+        const clickedButton = menuToggle.contains(event.target);
+
+        if (!clickedInsideMenu && !clickedButton) {
+          navLinks.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+          menuToggle.textContent = '☰';
+        }
+      });
+    }
   </script>
-  <script>
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
-
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      menuToggle.textContent = isOpen ? '✕' : '☰';
-    });
-
-    document.addEventListener('click', (event) => {
-      const clickedInsideMenu = navLinks.contains(event.target);
-      const clickedButton = menuToggle.contains(event.target);
-
-      if (!clickedInsideMenu && !clickedButton) {
-        navLinks.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-        menuToggle.textContent = '☰';
-      }
-    });
-  }
-</script>
 </body>
 </html>
